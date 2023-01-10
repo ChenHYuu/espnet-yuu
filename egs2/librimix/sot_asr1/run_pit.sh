@@ -7,26 +7,29 @@ set -o pipefail
 
 train_set="train"
 valid_set="dev"
-test_sets="test"
+test_sets="dev test"
 
-asr_config=conf/tuning/train_sot_asr_wavlm_transformer.yaml
+asr_config=conf/tuning/train_pit_asr_transformer_wavlm.yaml
+
 lm_config=conf/tuning/train_lm_transformer.yaml
-inference_config=conf/decode.yaml
+inference_config=conf/tuning/decode_pit.yaml
 
 ./asr.sh \
     --lang en \
-    --ngpu 1 \
-    --token_type "char" \
-    --asr_task "asr" \
-    --sot_asr true \
-    --num_ref 1 \
+    --audio_format "flac.ark" \
+    --feats_type raw \
+    --token_type char \
+    --asr_task asr \
+    --num_ref 2 \
     --max_wav_duration 30 \
     --speed_perturb_factors "0.9 1.0 1.1" \
+    --feats_normalize utterance_mvn \
     --asr_config "${asr_config}" \
     --lm_config "${lm_config}" \
     --inference_config "${inference_config}" \
+    --inference_args "--multi_asr true" \
     --train_set "${train_set}" \
     --valid_set "${valid_set}" \
     --test_sets "${test_sets}" \
-    --lm_train_text "data/${train_set}/text data/local/other_text/text" \
-    --bpe_train_text "data/${train_set}/text" "$@"
+    --lm_train_text "data/${train_set}/text_spk1 data/${train_set}/text_spk2 data/local/other_text/text" \
+    --bpe_train_text "data/${train_set}/text_spk1 data/${train_set}/text_spk2" "$@"
