@@ -38,14 +38,22 @@ encoder_conf:
     num_layers: 3
     hidden_size: 128
     output_size: 128
+    # dropout: 0.3 # 新增
 decoder: rnn
 decoder_conf:
     rnn_type: lstm
     num_layers: 1
     hidden_size: 128
+    # dropout: 0.3 # 新增
     sampling_probability: 0.
     att_conf:
         atype: location
         adim: 128
         aconv_chans: 10
         aconv_filts: 100
+
+# pretrain_path: null
+# init_param:
+# - ../../vb_AS_I/asr1/exp/asr_A_SI_cif/valid.acc.ave.pth
+# freeze_param:
+# - decoder

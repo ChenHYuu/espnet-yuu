@@ -84,6 +84,7 @@ class FastSelfAttention(torch.nn.Module):
             self.query_att(mixed_query_layer).transpose(1, 2)
             / self.attention_head_size**0.5
         )
+        query_for_score = query_for_score.float()
         if mask is not None:
             min_value = float(
                 numpy.finfo(
@@ -116,6 +117,7 @@ class FastSelfAttention(torch.nn.Module):
         query_key_score = (
             self.key_att(mixed_query_key_layer) / self.attention_head_size**0.5
         ).transpose(1, 2)
+        query_key_score = query_key_score.float()
         if mask is not None:
             min_value = float(
                 numpy.finfo(

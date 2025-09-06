@@ -104,8 +104,6 @@ class TrainerOptions:
     unused_parameters: bool
     wandb_model_log_interval: int
     create_graph_in_tensorboard: bool
-    gradient_as_bucket_view: bool
-    ddp_comm_hook: Optional[str]
 
 
 class Trainer:
@@ -159,7 +157,6 @@ class Trainer:
         states = torch.load(
             checkpoint,
             map_location=f"cuda:{torch.cuda.current_device()}" if ngpu > 0 else "cpu",
-            weights_only=False,
         )
         model.load_state_dict(states["model"], strict=strict)
         reporter.load_state_dict(states["reporter"])
@@ -188,6 +185,7 @@ class Trainer:
         plot_attention_iter_factory: Optional[AbsIterFactory],
         trainer_options,
         distributed_option: DistributedOption,
+        plot_spectrum_iter_factory: Optional[AbsIterFactory] = None,
     ) -> None:
         """Perform training. This method performs the main process of training."""
         # NOTE(kamo): Don't check the type more strictly as far trainer_options
@@ -271,29 +269,7 @@ class Trainer:
                         else None
                     ),
                     find_unused_parameters=trainer_options.unused_parameters,
-                    gradient_as_bucket_view=trainer_options.gradient_as_bucket_view,
                 )
-
-                # Register DDP communication hook
-                if trainer_options.ddp_comm_hook is not None:
-                    from torch.distributed.algorithms.ddp_comm_hooks.default_hooks import (  # noqa: E501
-                        bf16_compress_hook,
-                        fp16_compress_hook,
-                    )
-
-                    _hooks = {
-                        "fp16_compress_hook": fp16_compress_hook,
-                        "bf16_compress_hook": bf16_compress_hook,
-                    }
-                    dp_model.register_comm_hook(
-                        None,
-                        _hooks[trainer_options.ddp_comm_hook],
-                    )
-                    logging.info(
-                        f"Registered DDP communication hook: "
-                        f"{trainer_options.ddp_comm_hook}"
-                    )
-
         elif distributed_option.ngpu > 1:
             dp_model = torch.nn.parallel.DataParallel(
                 model,
@@ -338,7 +314,6 @@ class Trainer:
 
             reporter.set_epoch(iepoch)
             # 1. Train and validation for one-epoch
-            torch.cuda.empty_cache()
             with reporter.observe("train") as sub_reporter:
                 all_steps_are_invalid = cls.train_one_epoch(
                     model=dp_model,
@@ -352,7 +327,6 @@ class Trainer:
                     distributed_option=distributed_option,
                 )
 
-            torch.cuda.empty_cache()
             with reporter.observe("valid") as sub_reporter:
                 cls.validate_one_epoch(
                     model=dp_model,
@@ -361,8 +335,6 @@ class Trainer:
                     options=trainer_options,
                     distributed_option=distributed_option,
                 )
-
-            torch.cuda.empty_cache()
             if not distributed_option.distributed or distributed_option.dist_rank == 0:
                 # att_plot doesn't support distributed
                 if plot_attention_iter_factory is not None:
@@ -375,6 +347,11 @@ class Trainer:
                             reporter=sub_reporter,
                             options=trainer_options,
                         )
+                # spectrum plot 
+                # if plot_spectrum_iter_factory is not None:
+                #     with reporter.observe("spectrum_plot") as sub_reporter:
+                #         cls.
+                
 
             # 2. LR Scheduler step
             for scheduler in schedulers:
@@ -416,6 +393,13 @@ class Trainer:
                             }
                         else:
                             raise ValueError(f"Adapter type {adapter} not supported")
+                    else:  # save_strategy == "required_grad_only"
+                        for n, p in model.named_parameters():
+                            if not p.requires_grad:
+                                model_state_dict.pop(n)
+                else:
+                    if save_strategy == "all":
+                        model_state_dict = model_state_dict
                     else:  # save_strategy == "required_grad_only"
                         for n, p in model.named_parameters():
                             if not p.requires_grad:
@@ -677,8 +661,6 @@ class Trainer:
                         loss, stats, weight = retval
                         optim_idx = None
 
-                    retval = None
-
                 stats = {k: v for k, v in stats.items() if v is not None}
                 if ngpu > 1 or distributed:
                     # Apply weighted averaging for loss and stats
@@ -708,7 +690,6 @@ class Trainer:
                     scaler.scale(loss).backward()
                 else:
                     loss.backward()
-            del loss
 
             if iiter % accum_grad == 0:
                 if scaler is not None:
@@ -853,12 +834,7 @@ class Trainer:
             if no_forward_run:
                 continue
 
-            with autocast(
-                options.use_amp,
-                **autocast_args,
-            ):
-                retval = model(**batch)
-
+            retval = model(**batch)
             if isinstance(retval, dict):
                 stats = retval["stats"]
                 weight = retval["weight"]

@@ -1,0 +1,16 @@
+numpy<2
+scipy
+soundfile
+audioread
+resampy
+typeguard==2.13.3
+tqdm
+PyYAML
+kaldiio
+einops
+editdistance
+hydra-core
+omegaconf
+espnet>=2024.6
+espnet-model-zoo
+sentencepiece==0.2.0

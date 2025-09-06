@@ -270,7 +270,7 @@ class Text2Speech:
 
 @typechecked
 def inference(
-    output_dir: Union[Path, str],
+    output_dir: str,
     batch_size: int,
     dtype: str,
     ngpu: int,
