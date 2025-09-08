@@ -5,7 +5,7 @@ import torch
 from typeguard import typechecked
 
 from espnet2.asr.frontend.abs_frontend import AbsFrontend
-from espnet2.asr.frontend.default import DefaultFrontend  # noqa
+from espnet2.asr.frontend.default import DefaultFrontend
 from espnet2.gan_svs.post_frontend.s3prl import S3prlPostFrontend
 
 
@@ -28,8 +28,45 @@ class FusedPostFrontends(AbsFrontend):
 
         for i, postfrontend in enumerate(postfrontends):
             postfrontend_type = postfrontend["postfrontend_type"]
+            if postfrontend_type == "default":
+                n_mels, fs, n_fft, win_length, hop_length = (
+                    postfrontend.get("n_mels", 80),
+                    fs,
+                    postfrontend.get("n_fft", 512),
+                    postfrontend.get("win_length"),
+                    postfrontend.get("hop_length", 128),
+                )
+                window, center, normalized, onesided = (
+                    postfrontend.get("window", "hann"),
+                    postfrontend.get("center", True),
+                    postfrontend.get("normalized", False),
+                    postfrontend.get("onesided", True),
+                )
+                fmin, fmax, htk, apply_stft = (
+                    postfrontend.get("fmin", None),
+                    postfrontend.get("fmax", None),
+                    postfrontend.get("htk", False),
+                    postfrontend.get("apply_stft", True),
+                )
 
-            if postfrontend_type == "s3prl":
+                self.postfrontends.append(
+                    DefaultFrontend(
+                        n_mels=n_mels,
+                        n_fft=n_fft,
+                        fs=fs,
+                        win_length=win_length,
+                        hop_length=hop_length,
+                        window=window,
+                        center=center,
+                        normalized=normalized,
+                        onesided=onesided,
+                        fmin=fmin,
+                        fmax=fmax,
+                        htk=htk,
+                        apply_stft=apply_stft,
+                    )
+                )
+            elif postfrontend_type == "s3prl":
                 postfrontend_conf, download_dir, multilayer_feature = (
                     postfrontend.get("postfrontend_conf"),
                     postfrontend.get("download_dir"),
@@ -44,8 +81,9 @@ class FusedPostFrontends(AbsFrontend):
                         multilayer_feature=multilayer_feature,
                     )
                 )
+
             else:
-                raise NotImplementedError  # frontends are only s3prl
+                raise NotImplementedError  # frontends are only default or s3prl
 
         self.postfrontends = torch.nn.ModuleList(self.postfrontends)
 
@@ -55,7 +93,10 @@ class FusedPostFrontends(AbsFrontend):
         self.factors = [
             postfrontend.hop_length // self.gcd for postfrontend in self.postfrontends
         ]
-
+        if torch.cuda.is_available():
+            dev = "cuda"
+        else:
+            dev = "cpu"
         if self.align_method == "linear_projection":
             self.projection_layers = [
                 torch.nn.Linear(
@@ -65,6 +106,7 @@ class FusedPostFrontends(AbsFrontend):
                 for i, postfrontend in enumerate(self.postfrontends)
             ]
             self.projection_layers = torch.nn.ModuleList(self.projection_layers)
+            self.projection_layers = self.projection_layers.to(torch.device(dev))
 
     def output_size(self) -> int:
         return len(self.postfrontends) * self.proj_dim

@@ -47,7 +47,6 @@ class TorchAudioHubertPretrainModel(AbsESPnetModel):
         preencoder: Optional[AbsPreEncoder],
         encoder: AbsEncoder,
         ignore_id: int = -1,
-        **kwargs,
     ):
 
         super().__init__()
@@ -287,7 +286,6 @@ class HubertPretrainModel(AbsESPnetModel):
         pred_masked_weight: float = 1.0,
         pred_nomask_weight: float = 0.0,
         loss_weights: float = 0.0,
-        **kwargs,
     ):
 
         super().__init__()

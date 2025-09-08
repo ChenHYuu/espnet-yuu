@@ -2,7 +2,6 @@ import logging
 import re
 from collections import defaultdict
 from copy import deepcopy
-from math import inf
 from typing import Any, Dict, Iterator, List, Optional, Sequence, Tuple, Union
 
 import numpy as np
@@ -52,9 +51,7 @@ class ChunkIterFactory(AbsIterFactory):
         collate_fn=None,
         pin_memory: bool = False,
         excluded_key_prefixes: Optional[List[str]] = None,
-        discard_short_samples: bool = True,
         default_fs: Optional[int] = None,
-        chunk_max_abs_length: Optional[int] = None,
     ):
         assert all(len(x) == 1 for x in batches), "batch-size must be 1"
 
@@ -92,10 +89,6 @@ class ChunkIterFactory(AbsIterFactory):
             # Single candidates: Fixed chunk length
             self.chunk_lengths = [chunk_length]
 
-        if chunk_max_abs_length is None:
-            self.chunk_max_abs_length = inf
-        else:
-            self.chunk_max_abs_length = chunk_max_abs_length
         self.chunk_shift_ratio = chunk_shift_ratio
         self.batch_size = batch_size
         self.seed = seed
@@ -104,9 +97,6 @@ class ChunkIterFactory(AbsIterFactory):
         # in case that different batches have different sampling frequencies
         # (If None, the chunk length is always fixed)
         self.default_fs = default_fs
-        # Whether to discard samples that shorter than the shortest chunk length
-        self.discard_short_samples = discard_short_samples
-        self.collate_fn = collate_fn
 
         # keys that satisfy either condition below will be excluded from the length
         # consistency check:
@@ -178,10 +168,8 @@ class ChunkIterFactory(AbsIterFactory):
             L = len(batch[sequence_keys[0]])
             # Select chunk length
             chunk_lengths = [lg * fs // default_fs for lg in self.chunk_lengths]
-            chunk_lengths = [
-                min(lg, self.chunk_max_abs_length) for lg in chunk_lengths if lg < L
-            ]
-            if len(chunk_lengths) == 0 and getattr(self, "discard_short_samples", True):
+            chunk_lengths = [lg for lg in chunk_lengths if lg < L]
+            if len(chunk_lengths) == 0:
                 logging.warning(
                     f"The length of '{id_}' is {L}, but it is shorter than "
                     f"any candidates of chunk-length: {self.chunk_lengths}"
@@ -195,24 +183,18 @@ class ChunkIterFactory(AbsIterFactory):
                 .item()
             )
 
-            if len(chunk_lengths) == 0:
-                # keep the batch as is
-                cache_id_list = cache_id_list_dict[category].setdefault(0, [])
-                cache_chunks = cache_chunks_dict[category].setdefault(0, {})
-                Z, N, W, S = 0, 1, L, 0
-            else:
-                W = int(state.choice(chunk_lengths, 1))
-                cache_id_list = cache_id_list_dict[category].setdefault(W, [])
-                cache_chunks = cache_chunks_dict[category].setdefault(W, {})
+            W = int(state.choice(chunk_lengths, 1))
+            cache_id_list = cache_id_list_dict[category].setdefault(W, [])
+            cache_chunks = cache_chunks_dict[category].setdefault(W, {})
 
-                # Shift width to the next chunk
-                S = int(W * self.chunk_shift_ratio)
-                # Number of chunks
-                N = (L - W) // S + 1
-                if shuffle:
-                    Z = state.randint(0, (L - W) % S + 1)
-                else:
-                    Z = 0
+            # Shift width to the next chunk
+            S = int(W * self.chunk_shift_ratio)
+            # Number of chunks
+            N = (L - W) // S + 1
+            if shuffle:
+                Z = state.randint(0, (L - W) % S + 1)
+            else:
+                Z = 0
 
             # Split a sequence into chunks.
             # Note that the marginal frames divided by chunk length are discarded
@@ -243,8 +225,6 @@ class ChunkIterFactory(AbsIterFactory):
                     state,
                 )
 
-            if len(chunk_lengths) == 0:
-                W = 0
             cache_id_list_dict[category][W] = cache_id_list
             cache_chunks_dict[category][W] = cache_chunks
 
@@ -260,12 +240,6 @@ class ChunkIterFactory(AbsIterFactory):
                         shuffle,
                         state,
                     )
-
-    def prepare_for_collate(self, id_list, batches):
-        return [
-            (id_, {k: vs[i].numpy() for k, vs in batches.items()})
-            for i, id_ in enumerate(id_list)
-        ]
 
     def _generate_mini_batches(
         self,
@@ -283,17 +257,10 @@ class ChunkIterFactory(AbsIterFactory):
         bs = self.batch_size
         while len(id_list) >= bs:
             # Make mini-batch and yield
-            if self.discard_short_samples:
-                yield (
-                    id_list[:bs],
-                    {k: torch.stack(v[:bs], 0) for k, v in batches.items()},
-                )
-            else:
-                yield self.collate_fn(
-                    self.prepare_for_collate(
-                        id_list[:bs], {k: v[:bs] for k, v in batches.items()}
-                    )
-                )
+            yield (
+                id_list[:bs],
+                {k: torch.stack(v[:bs], 0) for k, v in batches.items()},
+            )
             id_list = id_list[bs:]
             batches = {k: v[bs:] for k, v in batches.items()}
 

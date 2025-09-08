@@ -11,11 +11,11 @@ from espnet2.asr.decoder.abs_decoder import AbsDecoder
 from espnet2.asr.decoder.hugging_face_transformers_decoder import (  # noqa: H301
     HuggingFaceTransformersDecoder,
 )
-from espnet2.asr.decoder.linear_decoder import LinearDecoder
 from espnet2.asr.decoder.mlm_decoder import MLMDecoder
 from espnet2.asr.decoder.rnn_decoder import RNNDecoder
 from espnet2.asr.decoder.s4_decoder import S4Decoder
 from espnet2.asr.decoder.transducer_decoder import TransducerDecoder
+from espnet2.asr.decoder.transformer_aux_decoder import TransformerAux2Decoder, TransformerAuxDecoder
 from espnet2.asr.decoder.transformer_decoder import (
     DynamicConvolution2DTransformerDecoder,
     DynamicConvolutionTransformerDecoder,
@@ -26,7 +26,6 @@ from espnet2.asr.decoder.transformer_decoder import (
 from espnet2.asr.decoder.whisper_decoder import OpenAIWhisperDecoder
 from espnet2.asr.encoder.abs_encoder import AbsEncoder
 from espnet2.asr.encoder.avhubert_encoder import FairseqAVHubertEncoder
-from espnet2.asr.encoder.beats_encoder import BeatsEncoder
 from espnet2.asr.encoder.branchformer_encoder import BranchformerEncoder
 from espnet2.asr.encoder.conformer_encoder import ConformerEncoder
 from espnet2.asr.encoder.contextual_block_conformer_encoder import (
@@ -42,7 +41,6 @@ from espnet2.asr.encoder.hubert_encoder import (
     TorchAudioHuBERTPretrainEncoder,
 )
 from espnet2.asr.encoder.longformer_encoder import LongformerEncoder
-from espnet2.asr.encoder.multiconvformer_encoder import MultiConvConformerEncoder
 from espnet2.asr.encoder.rnn_encoder import RNNEncoder
 from espnet2.asr.encoder.transformer_encoder import TransformerEncoder
 from espnet2.asr.encoder.transformer_encoder_multispkr import (
@@ -51,12 +49,16 @@ from espnet2.asr.encoder.transformer_encoder_multispkr import (
 from espnet2.asr.encoder.vgg_rnn_encoder import VGGRNNEncoder
 from espnet2.asr.encoder.wav2vec2_encoder import FairSeqWav2Vec2Encoder
 from espnet2.asr.encoder.whisper_encoder import OpenAIWhisperEncoder
+from espnet2.asr.espnet_cif_model import ESPnetCIFASRModel, ESPnetCIFV2ASRModel
+from espnet2.asr.espnet_enhance_model import ESPnetEnhanceASRModel
 from espnet2.asr.espnet_model import ESPnetASRModel
 from espnet2.asr.frontend.abs_frontend import AbsFrontend
+from espnet2.asr.frontend.complex_enhance_frontend import FDCUIrmFrontend
 from espnet2.asr.frontend.default import DefaultFrontend
+from espnet2.asr.frontend.enhance_frontend import ComplexFrontend, ConversionFrontend, EnhanceFrontend, IRMEnhanceFrontend
 from espnet2.asr.frontend.fused import FusedFrontends
-from espnet2.asr.frontend.huggingface import HuggingFaceFrontend
 from espnet2.asr.frontend.s3prl import S3prlFrontend
+from espnet2.asr.frontend.spectrogram_frontend import SpectrumFrontend
 from espnet2.asr.frontend.whisper import WhisperFrontend
 from espnet2.asr.frontend.windowing import SlidingWindow
 from espnet2.asr.maskctc_model import MaskCTCModel
@@ -66,6 +68,7 @@ from espnet2.asr.postencoder.hugging_face_transformers_postencoder import (
     HuggingFaceTransformersPostEncoder,
 )
 from espnet2.asr.postencoder.length_adaptor_postencoder import LengthAdaptorPostEncoder
+from espnet2.asr.postencoder.cif_postencoder import CifPostencoder
 from espnet2.asr.preencoder.abs_preencoder import AbsPreEncoder
 from espnet2.asr.preencoder.linear import LinearProjection
 from espnet2.asr.preencoder.sinc import LightweightSincConvs
@@ -99,8 +102,12 @@ frontend_choices = ClassChoices(
         s3prl=S3prlFrontend,
         fused=FusedFrontends,
         whisper=WhisperFrontend,
-        huggingface=HuggingFaceFrontend,
-    ),  # If setting this to none, please make sure to provide input_size in the config.
+        enhanced=EnhanceFrontend,
+        enhanced2=IRMEnhanceFrontend,
+        enhanced3=ConversionFrontend,
+        enhanced4=ComplexFrontend,
+        fdcunet_irm=FDCUIrmFrontend,
+    ),
     type_check=AbsFrontend,
     default="default",
 )
@@ -127,6 +134,9 @@ model_choices = ClassChoices(
     "model",
     classes=dict(
         espnet=ESPnetASRModel,
+        espnet_cif=ESPnetCIFASRModel,
+        espnet_cifv2=ESPnetCIFV2ASRModel,
+        espnet_enhance=ESPnetEnhanceASRModel,
         maskctc=MaskCTCModel,
         pit_espnet=PITESPnetModel,
     ),
@@ -162,8 +172,6 @@ encoder_choices = ClassChoices(
         whisper=OpenAIWhisperEncoder,
         e_branchformer=EBranchformerEncoder,
         avhubert=FairseqAVHubertEncoder,
-        multiconv_conformer=MultiConvConformerEncoder,
-        beats=BeatsEncoder,
     ),
     type_check=AbsEncoder,
     default="rnn",
@@ -173,6 +181,7 @@ postencoder_choices = ClassChoices(
     classes=dict(
         hugging_face_transformers=HuggingFaceTransformersPostEncoder,
         length_adaptor=LengthAdaptorPostEncoder,
+        cif_postencoder=CifPostencoder,
     ),
     type_check=AbsPostEncoder,
     default=None,
@@ -182,6 +191,8 @@ decoder_choices = ClassChoices(
     "decoder",
     classes=dict(
         transformer=TransformerDecoder,
+        transformer_aux=TransformerAuxDecoder,
+        transformer_aux2=TransformerAux2Decoder,
         lightweight_conv=LightweightConvolutionTransformerDecoder,
         lightweight_conv2d=LightweightConvolution2DTransformerDecoder,
         dynamic_conv=DynamicConvolutionTransformerDecoder,
@@ -192,9 +203,6 @@ decoder_choices = ClassChoices(
         whisper=OpenAIWhisperDecoder,
         hugging_face_transformers=HuggingFaceTransformersDecoder,
         s4=S4Decoder,
-        linear_decoder=LinearDecoder,
-        # This decoder is only meant for classification tasks.
-        # TODO(shikhar): Move classification to cls1 task completely.
     ),
     type_check=AbsDecoder,
     default=None,
@@ -266,7 +274,6 @@ class ASRTask(AbsTask):
                 "xavier_normal",
                 "kaiming_uniform",
                 "kaiming_normal",
-                "normal",
                 None,
             ],
         )

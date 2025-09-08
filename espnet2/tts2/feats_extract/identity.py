@@ -1,4 +1,4 @@
-from typing import Any, Dict, Optional, Tuple, Union  # NOQA
+from typing import Any, Dict, Optional, Tuple, Union
 
 import torch
 from typeguard import typechecked

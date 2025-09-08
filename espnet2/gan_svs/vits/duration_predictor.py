@@ -2,7 +2,8 @@
 # Copyright 2022 Yifeng Yu
 #  Apache 2.0  (http://www.apache.org/licenses/LICENSE-2.0)
 
-"""Duration predictor modules in VISinger."""
+"""Duration predictor modules in VISinger.
+"""
 
 import torch
 

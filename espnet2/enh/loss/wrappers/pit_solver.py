@@ -98,9 +98,9 @@ class PITSolver(AbsLossWrapper):
                     perm0 = perm_.unsqueeze(1)
                 stats[k] = new_v.gather(1, perm0.to(device=new_v.device)).unbind(1)
         else:
-            loss = torch.stack(
+            loss = torch.tensor(
                 [
-                    torch.stack(
+                    torch.tensor(
                         [
                             pre_hook(
                                 self.criterion,

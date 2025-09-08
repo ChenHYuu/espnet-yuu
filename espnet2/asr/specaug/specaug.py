@@ -33,7 +33,6 @@ class SpecAug(AbsSpecAug):
         time_mask_width_range: Optional[Union[int, Sequence[int]]] = None,
         time_mask_width_ratio_range: Optional[Union[float, Sequence[float]]] = None,
         num_time_mask: int = 2,
-        replace_with_zero: bool = True,
     ):
         if not apply_time_warp and not apply_time_mask and not apply_freq_mask:
             raise ValueError(
@@ -63,7 +62,6 @@ class SpecAug(AbsSpecAug):
                 dim="freq",
                 mask_width_range=freq_mask_width_range,
                 num_mask=num_freq_mask,
-                replace_with_zero=replace_with_zero,
             )
         else:
             self.freq_mask = None
@@ -74,14 +72,12 @@ class SpecAug(AbsSpecAug):
                     dim="time",
                     mask_width_range=time_mask_width_range,
                     num_mask=num_time_mask,
-                    replace_with_zero=replace_with_zero,
                 )
             elif time_mask_width_ratio_range is not None:
                 self.time_mask = MaskAlongAxisVariableMaxWidth(
                     dim="time",
                     mask_width_ratio_range=time_mask_width_ratio_range,
                     num_mask=num_time_mask,
-                    replace_with_zero=replace_with_zero,
                 )
             else:
                 raise ValueError(

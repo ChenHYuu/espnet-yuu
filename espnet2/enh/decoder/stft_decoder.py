@@ -55,7 +55,7 @@ class STFTDecoder(AbsDecoder):
         # the exponent factor used in the "exponent" transform
         self.spec_abs_exponent = spec_abs_exponent
 
-    @torch.amp.autocast("cuda", enabled=False)
+    @torch.cuda.amp.autocast(enabled=False)
     def forward(self, input: ComplexTensor, ilens: torch.Tensor, fs: int = None):
         """Forward.
 
@@ -116,6 +116,7 @@ class STFTDecoder(AbsDecoder):
         Args:
             fs (int): new sampling rate
         """
+        assert fs % self.default_fs == 0 or self.default_fs % fs == 0
         self.stft.n_fft = self.n_fft * fs // self.default_fs
         self.stft.win_length = self.win_length * fs // self.default_fs
         self.stft.hop_length = self.hop_length * fs // self.default_fs
