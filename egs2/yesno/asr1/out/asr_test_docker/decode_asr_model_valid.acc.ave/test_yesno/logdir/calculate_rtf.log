@@ -1,0 +1,9 @@
+# pyscripts/utils/calculate_rtf.py --log-dir exp/asr_test_docker/decode_asr_model_valid.acc.ave/test_yesno/logdir --log-name asr_inference --input-shift 0.0625 --start-times-marker "speech length" --end-times-marker "best hypo" --inf-num 1 
+# Started at Fri Aug 22 04:05:24 Asia 2025
+#
+Total audio duration: 13.568 [sec]
+Total decoding time: 0.420 [sec]
+RTF: 0.031
+Latency: 38.182 [ms/sentence]
+# Accounting: time=0 threads=1
+# Ended (code 0) at Fri Aug 22 04:05:24 Asia 2025, elapsed time 0 seconds

@@ -1,0 +1,967 @@
+# python3 -m espnet2.bin.asr_train --use_preprocessor true --bpemodel none --token_type word --token_list data/zh_token_list/word/tokens.txt --non_linguistic_symbols none --cleaner none --g2p none --valid_data_path_and_name_and_type dump/raw/train_dev/wav.scp,speech,sound --valid_shape_file exp/asr_stats_raw_zh_word_sp/valid/speech_shape --resume true --ignore_init_mismatch false --fold_length 80000 --output_dir exp/asr_test_docker --config conf/train_asr.yaml --frontend_conf fs=16k --normalize=global_mvn --normalize_conf stats_file=exp/asr_stats_raw_zh_word_sp/train/feats_stats.npz --train_data_path_and_name_and_type dump/raw/train_nodev_sp/wav.scp,speech,sound --train_shape_file exp/asr_stats_raw_zh_word_sp/train/speech_shape --fold_length 150 --train_data_path_and_name_and_type dump/raw/train_nodev_sp/text,text,text --train_shape_file exp/asr_stats_raw_zh_word_sp/train/text_shape.word --valid_data_path_and_name_and_type dump/raw/train_dev/text,text,text --valid_shape_file exp/asr_stats_raw_zh_word_sp/valid/text_shape.word --ngpu 2 --multiprocessing_distributed True 
+# Started at Fri Aug 22 04:03:28 Asia 2025
+#
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/bin/python3 /espnet/espnet2/bin/asr_train.py --use_preprocessor true --bpemodel none --token_type word --token_list data/zh_token_list/word/tokens.txt --non_linguistic_symbols none --cleaner none --g2p none --valid_data_path_and_name_and_type dump/raw/train_dev/wav.scp,speech,sound --valid_shape_file exp/asr_stats_raw_zh_word_sp/valid/speech_shape --resume true --ignore_init_mismatch false --fold_length 80000 --output_dir exp/asr_test_docker --config conf/train_asr.yaml --frontend_conf fs=16k --normalize=global_mvn --normalize_conf stats_file=exp/asr_stats_raw_zh_word_sp/train/feats_stats.npz --train_data_path_and_name_and_type dump/raw/train_nodev_sp/wav.scp,speech,sound --train_shape_file exp/asr_stats_raw_zh_word_sp/train/speech_shape --fold_length 150 --train_data_path_and_name_and_type dump/raw/train_nodev_sp/text,text,text --train_shape_file exp/asr_stats_raw_zh_word_sp/train/text_shape.word --valid_data_path_and_name_and_type dump/raw/train_dev/text,text,text --valid_shape_file exp/asr_stats_raw_zh_word_sp/valid/text_shape.word --ngpu 2 --multiprocessing_distributed True
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[W822 04:03:31.759070310 Utils.hpp:164] Warning: Environment variable NCCL_BLOCKING_WAIT is deprecated; use TORCH_NCCL_BLOCKING_WAIT instead (function operator())
+[W822 04:03:31.760560835 Utils.hpp:164] Warning: Environment variable NCCL_BLOCKING_WAIT is deprecated; use TORCH_NCCL_BLOCKING_WAIT instead (function operator())
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,611 (asr:539) INFO: Vocabulary size: 14
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,621 (initialize:33) INFO: Initialize encoder.enc.0.birnn0.bias_ih_l0 to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,621 (initialize:33) INFO: Initialize encoder.enc.0.birnn0.bias_hh_l0 to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,621 (initialize:33) INFO: Initialize encoder.enc.0.birnn0.bias_ih_l0_reverse to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,621 (initialize:33) INFO: Initialize encoder.enc.0.birnn0.bias_hh_l0_reverse to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,622 (initialize:33) INFO: Initialize encoder.enc.0.bt0.bias to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,622 (initialize:33) INFO: Initialize encoder.enc.0.birnn1.bias_ih_l0 to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,622 (initialize:33) INFO: Initialize encoder.enc.0.birnn1.bias_hh_l0 to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,622 (initialize:33) INFO: Initialize encoder.enc.0.birnn1.bias_ih_l0_reverse to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,622 (initialize:33) INFO: Initialize encoder.enc.0.birnn1.bias_hh_l0_reverse to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,622 (initialize:33) INFO: Initialize encoder.enc.0.bt1.bias to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,623 (initialize:33) INFO: Initialize encoder.enc.0.birnn2.bias_ih_l0 to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,623 (initialize:33) INFO: Initialize encoder.enc.0.birnn2.bias_hh_l0 to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,623 (initialize:33) INFO: Initialize encoder.enc.0.birnn2.bias_ih_l0_reverse to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,623 (initialize:33) INFO: Initialize encoder.enc.0.birnn2.bias_hh_l0_reverse to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,623 (initialize:33) INFO: Initialize encoder.enc.0.bt2.bias to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,623 (initialize:33) INFO: Initialize decoder.decoder.0.bias_ih to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,623 (initialize:33) INFO: Initialize decoder.decoder.0.bias_hh to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,623 (initialize:33) INFO: Initialize decoder.output.bias to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,624 (initialize:33) INFO: Initialize decoder.att_list.0.mlp_enc.bias to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,624 (initialize:33) INFO: Initialize decoder.att_list.0.gvec.bias to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:31,624 (initialize:33) INFO: Initialize ctc.ctc_lo.bias to zeros
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,046 (abs_task:1317) INFO: pytorch.version=2.4.0, cuda.available=True, cudnn.version=90100, cudnn.benchmark=False, cudnn.deterministic=True
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,046 (abs_task:1318) INFO: Model structure:
+ESPnetASRModel(
+  (frontend): DefaultFrontend(
+    (stft): Stft(n_fft=512, win_length=512, hop_length=128, center=True, normalized=False, onesided=True)
+    (frontend): Frontend()
+    (logmel): LogMel(sr=16000, n_fft=512, n_mels=80, fmin=0, fmax=8000.0, htk=False)
+  )
+  (normalize): GlobalMVN(stats_file=exp/asr_stats_raw_zh_word_sp/train/feats_stats.npz, norm_means=True, norm_vars=True)
+  (encoder): RNNEncoder(
+    (enc): ModuleList(
+      (0): RNNP(
+        (birnn0): LSTM(80, 128, batch_first=True, bidirectional=True)
+        (bt0): Linear(in_features=256, out_features=128, bias=True)
+        (birnn1): LSTM(128, 128, batch_first=True, bidirectional=True)
+        (bt1): Linear(in_features=256, out_features=128, bias=True)
+        (birnn2): LSTM(128, 128, batch_first=True, bidirectional=True)
+        (bt2): Linear(in_features=256, out_features=128, bias=True)
+      )
+    )
+  )
+  (decoder): RNNDecoder(
+    (embed): Embedding(14, 128)
+    (dropout_emb): Dropout(p=0.0, inplace=False)
+    (decoder): ModuleList(
+      (0): LSTMCell(256, 128)
+    )
+    (dropout_dec): ModuleList(
+      (0): Dropout(p=0.0, inplace=False)
+    )
+    (output): Linear(in_features=128, out_features=14, bias=True)
+    (att_list): ModuleList(
+      (0): AttLoc(
+        (mlp_enc): Linear(in_features=128, out_features=128, bias=True)
+        (mlp_dec): Linear(in_features=128, out_features=128, bias=False)
+        (mlp_att): Linear(in_features=10, out_features=128, bias=False)
+        (loc_conv): Conv2d(1, 10, kernel_size=(1, 201), stride=(1, 1), padding=(0, 100), bias=False)
+        (gvec): Linear(in_features=128, out_features=1, bias=True)
+      )
+    )
+  )
+  (criterion_att): LabelSmoothingLoss(
+    (criterion): KLDivLoss()
+  )
+  (ctc): CTC(
+    (ctc_lo): Linear(in_features=128, out_features=14, bias=True)
+    (ctc_loss): CTCLoss()
+  )
+)
+
+Model summary:
+    Class Name: ESPnetASRModel
+    Total Number of model parameters: 1.08 M
+    Number of trainable parameters: 1.08 M (100.0%)
+    Size: 4.33 MB
+    Type: torch.float32
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,046 (abs_task:1321) INFO: Optimizer:
+Adadelta (
+Parameter Group 0
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    lr: 1.0
+    maximize: False
+    rho: 0.95
+    weight_decay: 0
+)
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,046 (abs_task:1322) INFO: Scheduler: None
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,046 (abs_task:1331) INFO: Saving the configuration in exp/asr_test_docker/config.yaml
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,051 (asr:511) INFO: Optional Data Names: ('text_spk2', 'text_spk3', 'text_spk4', 'prompt')
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,052 (abs_task:1741) INFO: [train] dataset:
+ESPnetDataset(
+  speech: {"path": "dump/raw/train_nodev_sp/wav.scp", "type": "sound"}
+  text: {"path": "dump/raw/train_nodev_sp/text", "type": "text"}
+  preprocess: <espnet2.train.preprocessor.CommonPreprocessor object at 0x7f9595973810>)
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,053 (abs_task:1742) INFO: [train] Batch sampler: FoldedBatchSampler(N-batch=27, batch_size=5, shape_files=['exp/asr_stats_raw_zh_word_sp/train/speech_shape', 'exp/asr_stats_raw_zh_word_sp/train/text_shape.word'], sort_in_batch=descending, sort_batch=descending)
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,053 (abs_task:1743) INFO: [train] mini-batch sizes summary: N-batch=27, mean=4.9, min=2, max=5
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,053 (asr:511) INFO: Optional Data Names: ('text_spk2', 'text_spk3', 'text_spk4', 'prompt')
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,054 (abs_task:1741) INFO: [valid] dataset:
+ESPnetDataset(
+  speech: {"path": "dump/raw/train_dev/wav.scp", "type": "sound"}
+  text: {"path": "dump/raw/train_dev/text", "type": "text"}
+  preprocess: <espnet2.train.preprocessor.CommonPreprocessor object at 0x7f9594f53690>)
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,054 (abs_task:1742) INFO: [valid] Batch sampler: FoldedBatchSampler(N-batch=2, batch_size=5, shape_files=['exp/asr_stats_raw_zh_word_sp/valid/speech_shape', 'exp/asr_stats_raw_zh_word_sp/valid/text_shape.word'], sort_in_batch=descending, sort_batch=descending)
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,054 (abs_task:1743) INFO: [valid] mini-batch sizes summary: N-batch=2, mean=5.5, min=5, max=6
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,054 (asr:511) INFO: Optional Data Names: ('text_spk2', 'text_spk3', 'text_spk4', 'prompt')
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,054 (abs_task:1741) INFO: [plot_att] dataset:
+ESPnetDataset(
+  speech: {"path": "dump/raw/train_dev/wav.scp", "type": "sound"}
+  text: {"path": "dump/raw/train_dev/text", "type": "text"}
+  preprocess: <espnet2.train.preprocessor.CommonPreprocessor object at 0x7f959471e690>)
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,054 (abs_task:1742) INFO: [plot_att] Batch sampler: UnsortedBatchSampler(N-batch=11, batch_size=1, key_file=exp/asr_stats_raw_zh_word_sp/valid/speech_shape, 
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,054 (abs_task:1743) INFO: [plot_att] mini-batch sizes summary: N-batch=3, mean=1.0, min=1, max=1
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,055 (asr:511) INFO: Optional Data Names: ('text_spk2', 'text_spk3', 'text_spk4', 'prompt')
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,055 (abs_task:1741) INFO: [plot_spectrum] dataset:
+ESPnetDataset(
+  speech: {"path": "dump/raw/train_dev/wav.scp", "type": "sound"}
+  text: {"path": "dump/raw/train_dev/text", "type": "text"}
+  preprocess: <espnet2.train.preprocessor.CommonPreprocessor object at 0x7f9595971e50>)
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,055 (abs_task:1742) INFO: [plot_spectrum] Batch sampler: UnsortedBatchSampler(N-batch=11, batch_size=1, key_file=exp/asr_stats_raw_zh_word_sp/valid/speech_shape, 
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,055 (abs_task:1743) INFO: [plot_spectrum] mini-batch sizes summary: N-batch=3, mean=1.0, min=1, max=1
+/espnet/espnet2/train/trainer.py:157: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  states = torch.load(
+/espnet/espnet2/train/trainer.py:157: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  states = torch.load(
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,261 (trainer:174) INFO: The training was resumed using exp/asr_test_docker/checkpoint.pth
+000fe27ae8ae:3421:3421 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ^lo,docker,virbr,vmnet,vboxnet
+000fe27ae8ae:3421:3421 [0] NCCL INFO Bootstrap : Using eth0:172.17.0.4<0>
+000fe27ae8ae:3421:3421 [0] NCCL INFO NET/Plugin : dlerror=libnccl-net.so: cannot open shared object file: No such file or directory No plugin found (libnccl-net.so), using internal implementation
+000fe27ae8ae:3421:3421 [0] NCCL INFO cudaDriverVersion 12020
+NCCL version 2.20.5+cuda12.1
+000fe27ae8ae:3421:3437 [0] NCCL INFO Failed to open libibverbs.so[.1]
+000fe27ae8ae:3421:3437 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ^lo,docker,virbr,vmnet,vboxnet
+000fe27ae8ae:3421:3437 [0] NCCL INFO NET/Socket : Using [0]eth0:172.17.0.4<0>
+000fe27ae8ae:3421:3437 [0] NCCL INFO Using non-device net plugin version 0
+000fe27ae8ae:3421:3437 [0] NCCL INFO Using network Socket
+000fe27ae8ae:3421:3437 [0] NCCL INFO comm 0x49d30c80 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 1000 commId 0xc8375ad38030c674 - Init START
+000fe27ae8ae:3421:3437 [0] NCCL INFO comm 0x49d30c80 rank 0 nRanks 2 nNodes 1 localRanks 2 localRank 0 MNNVL 0
+000fe27ae8ae:3421:3437 [0] NCCL INFO Channel 00/02 :    0   1
+000fe27ae8ae:3421:3437 [0] NCCL INFO Channel 01/02 :    0   1
+000fe27ae8ae:3421:3437 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+000fe27ae8ae:3421:3437 [0] NCCL INFO P2P Chunksize set to 131072
+000fe27ae8ae:3421:3437 [0] NCCL INFO Channel 00 : 0[0] -> 1[1] via SHM/direct/direct
+000fe27ae8ae:3421:3437 [0] NCCL INFO Channel 01 : 0[0] -> 1[1] via SHM/direct/direct
+000fe27ae8ae:3421:3437 [0] NCCL INFO Connected all rings
+000fe27ae8ae:3421:3437 [0] NCCL INFO Connected all trees
+000fe27ae8ae:3421:3437 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+000fe27ae8ae:3421:3437 [0] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+000fe27ae8ae:3421:3437 [0] NCCL INFO comm 0x49d30c80 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 1000 commId 0xc8375ad38030c674 - Init COMPLETE
+[rank0]:[W822 04:03:32.853933555 Utils.hpp:110] Warning: Environment variable NCCL_BLOCKING_WAIT is deprecated; use TORCH_NCCL_BLOCKING_WAIT instead (function operator())
+000fe27ae8ae:3422:3422 [1] NCCL INFO cudaDriverVersion 12020
+000fe27ae8ae:3422:3422 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ^lo,docker,virbr,vmnet,vboxnet
+000fe27ae8ae:3422:3422 [1] NCCL INFO Bootstrap : Using eth0:172.17.0.4<0>
+000fe27ae8ae:3422:3422 [1] NCCL INFO NET/Plugin : dlerror=libnccl-net.so: cannot open shared object file: No such file or directory No plugin found (libnccl-net.so), using internal implementation
+000fe27ae8ae:3422:3438 [1] NCCL INFO Failed to open libibverbs.so[.1]
+000fe27ae8ae:3422:3438 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ^lo,docker,virbr,vmnet,vboxnet
+000fe27ae8ae:3422:3438 [1] NCCL INFO NET/Socket : Using [0]eth0:172.17.0.4<0>
+000fe27ae8ae:3422:3438 [1] NCCL INFO Using non-device net plugin version 0
+000fe27ae8ae:3422:3438 [1] NCCL INFO Using network Socket
+000fe27ae8ae:3422:3438 [1] NCCL INFO comm 0x35d50450 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId 7000 commId 0xc8375ad38030c674 - Init START
+000fe27ae8ae:3422:3438 [1] NCCL INFO comm 0x35d50450 rank 1 nRanks 2 nNodes 1 localRanks 2 localRank 1 MNNVL 0
+000fe27ae8ae:3422:3438 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+000fe27ae8ae:3422:3438 [1] NCCL INFO P2P Chunksize set to 131072
+000fe27ae8ae:3422:3438 [1] NCCL INFO Channel 00 : 1[1] -> 0[0] via SHM/direct/direct
+000fe27ae8ae:3422:3438 [1] NCCL INFO Channel 01 : 1[1] -> 0[0] via SHM/direct/direct
+000fe27ae8ae:3422:3438 [1] NCCL INFO Connected all rings
+000fe27ae8ae:3422:3438 [1] NCCL INFO Connected all trees
+000fe27ae8ae:3422:3438 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+000fe27ae8ae:3422:3438 [1] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+000fe27ae8ae:3422:3438 [1] NCCL INFO comm 0x35d50450 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId 7000 commId 0xc8375ad38030c674 - Init COMPLETE
+[rank1]:[W822 04:03:32.857482087 Utils.hpp:110] Warning: Environment variable NCCL_BLOCKING_WAIT is deprecated; use TORCH_NCCL_BLOCKING_WAIT instead (function operator())
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+[000fe27ae8ae:0/2] 2025-08-22 04:03:32,867 (trainer:312) INFO: 7/20epoch started
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/espnet/espnet2/train/trainer.py:622: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(
+/espnet/espnet2/train/trainer.py:622: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(
+/espnet/espnet2/asr/espnet_model.py:377: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(False):
+/espnet/espnet2/asr/espnet_model.py:377: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(False):
+[000fe27ae8ae:0/2] 2025-08-22 04:03:34,920 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:34,987 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:35,337 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:35,342 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:35,492 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:35,493 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:35,658 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:35,663 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:35,821 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:35,825 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:35,974 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:35,975 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:36,116 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:36,117 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:36,286 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:36,290 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:36,428 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:36,429 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:36,617 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:36,622 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:36,712 (trainer:792) INFO: 7epoch:train:1-10batch: iter_time=0.164, forward_time=0.099, loss_ctc=0.860, loss_att=1.811, acc=0.700, loss=1.336, backward_time=0.022, grad_norm=6.385, clip=60.000, loss_scale=1.000optim_step_time=0.004, optim0_lr0=1.000, train_time=0.384
+[000fe27ae8ae:0/2] 2025-08-22 04:03:36,770 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:36,775 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:36,902 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:36,903 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:37,060 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:37,065 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:37,229 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:37,229 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:37,378 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:37,379 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:37,536 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:37,537 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:37,682 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:37,683 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:37,843 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:37,847 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,009 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,010 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,161 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,161 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,255 (trainer:792) INFO: 7epoch:train:11-20batch: iter_time=3.746e-05, forward_time=0.052, loss_ctc=0.703, loss_att=1.645, acc=0.713, loss=1.174, backward_time=0.012, grad_norm=7.596, clip=60.000, loss_scale=1.000, optim_step_time=4.803e-04, optim0_lr0=1.000, train_time=0.154
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,321 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,326 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,476 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,477 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,610 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,611 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,751 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,756 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,923 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:38,924 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:39,063 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:39,068 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:39,209 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:39,214 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:03:41,452 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:41,457 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:41,591 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:41,591 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+[000fe27ae8ae:0/2] 2025-08-22 04:03:42,310 (font_manager:1639) INFO: generated new fontManager
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/espnet/espnet2/asr/espnet_model.py:377: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(False):
+[000fe27ae8ae:0/2] 2025-08-22 04:03:44,066 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:44,067 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:44,196 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:44,201 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:44,279 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:44,280 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+[000fe27ae8ae:0/2] 2025-08-22 04:03:44,690 (trainer:371) INFO: 7epoch results: [train] iter_time=0.061, forward_time=0.069, loss_ctc=0.799, loss_att=1.699, acc=0.727, loss=1.249, backward_time=0.016, grad_norm=7.373, clip=70.370, loss_scale=1.000, optim_step_time=0.002, optim0_lr0=1.000, train_time=0.238, time=6.87 seconds, total_count=189, gpu_max_cached_mem_GB=0.109, [valid] loss_ctc=1.288, cer_ctc=1.042, loss_att=2.020, acc=0.682, cer=0.779, wer=0.636, loss=1.654, time=2.41 seconds, total_count=14, gpu_max_cached_mem_GB=0.109, [att_plot] time=2.54 seconds, total_count=0, gpu_max_cached_mem_GB=0.109
+[000fe27ae8ae:0/2] 2025-08-22 04:03:45,356 (trainer:446) INFO: The best model has been updated: valid.acc
+[000fe27ae8ae:0/2] 2025-08-22 04:03:45,356 (trainer:500) INFO: The model files were removed: exp/asr_test_docker/1epoch.pth, exp/asr_test_docker/6epoch.pth
+[000fe27ae8ae:0/2] 2025-08-22 04:03:45,356 (trainer:300) INFO: 8/20epoch started. Estimated time to finish: 2 minutes and 42.37 seconds
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/espnet/espnet2/train/trainer.py:622: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(
+[000fe27ae8ae:0/2] 2025-08-22 04:03:46,977 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:46,978 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:47,120 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:47,125 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:47,272 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:47,273 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:47,438 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:47,442 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:47,587 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:47,587 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:47,742 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:47,746 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:47,890 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:47,890 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,015 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,016 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,189 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,189 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,336 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,341 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,432 (trainer:792) INFO: 8epoch:train:1-10batch: iter_time=0.158, forward_time=0.046, loss_ctc=0.432, loss_att=1.451, acc=0.809, loss=0.942, backward_time=0.012, grad_norm=5.914, clip=20.000, loss_scale=1.000optim_step_time=4.569e-04, optim0_lr0=1.000, train_time=0.307
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,475 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,475 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,623 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,623 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,761 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,762 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,912 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:48,916 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,052 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,053 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,200 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,205 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,357 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,361 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,501 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,502 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,647 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,652 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,806 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,810 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,902 (trainer:792) INFO: 8epoch:train:11-20batch: iter_time=3.578e-05, forward_time=0.046, loss_ctc=0.450, loss_att=1.281, acc=0.830, loss=0.866, backward_time=0.012, grad_norm=6.149, clip=60.000, loss_scale=1.000, optim_step_time=5.167e-04, optim0_lr0=1.000, train_time=0.147
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,968 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:49,972 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:50,143 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:50,143 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:50,279 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:50,279 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:50,425 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:50,425 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:50,573 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:50,578 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:50,732 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:50,736 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:50,874 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:50,875 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:03:53,084 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:53,085 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:53,239 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:53,239 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:03:55,456 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:55,460 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:55,578 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:55,583 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:55,680 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:55,685 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+[000fe27ae8ae:0/2] 2025-08-22 04:03:56,108 (trainer:371) INFO: 8epoch results: [train] iter_time=0.058, forward_time=0.047, loss_ctc=0.424, loss_att=1.344, acc=0.818, loss=0.884, backward_time=0.012, grad_norm=5.617, clip=33.333, loss_scale=1.000, optim_step_time=4.824e-04, optim0_lr0=1.000, train_time=0.208, time=6.04 seconds, total_count=216, gpu_max_cached_mem_GB=0.109, [valid] loss_ctc=0.974, cer_ctc=1.042, loss_att=1.794, acc=0.636, cer=0.988, wer=0.727, loss=1.384, time=2.38 seconds, total_count=16, gpu_max_cached_mem_GB=0.109, [att_plot] time=2.33 seconds, total_count=0, gpu_max_cached_mem_GB=0.109
+[000fe27ae8ae:0/2] 2025-08-22 04:03:56,876 (trainer:444) INFO: There are no improvements in this epoch
+[000fe27ae8ae:0/2] 2025-08-22 04:03:56,876 (trainer:300) INFO: 9/20epoch started. Estimated time to finish: 2 minutes and 24.06 seconds
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:03:58,547 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:58,551 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:58,700 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:58,700 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:58,832 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:58,834 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:58,974 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:58,974 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:59,140 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:59,140 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:59,298 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:59,299 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:59,446 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:59,448 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:59,587 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:59,588 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:59,742 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:59,747 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:59,887 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:59,888 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:03:59,994 (trainer:792) INFO: 9epoch:train:1-10batch: iter_time=0.162, forward_time=0.046, loss_ctc=0.202, loss_att=0.985, acc=0.920, loss=0.594, backward_time=0.012, grad_norm=3.328, clip=20.000, loss_scale=1.000optim_step_time=4.998e-04, optim0_lr0=1.000, train_time=0.312
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,039 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,040 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,164 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,165 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,315 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,315 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,461 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,461 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,608 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,612 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,757 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,759 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,899 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:00,900 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,051 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,055 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,205 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,206 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,342 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,347 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,435 (trainer:792) INFO: 9epoch:train:11-20batch: iter_time=3.639e-05, forward_time=0.042, loss_ctc=0.181, loss_att=0.978, acc=0.904, loss=0.580, backward_time=0.012, grad_norm=2.980, clip=10.000, loss_scale=1.000, optim_step_time=4.875e-04, optim0_lr0=1.000, train_time=0.144
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,484 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,484 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,631 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,636 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,778 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,782 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,958 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:01,960 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:02,098 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:02,103 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:02,247 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:02,249 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:02,391 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:02,391 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:04,635 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:04,635 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:04,766 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:04,766 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:06,973 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:06,977 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:07,080 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:07,081 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:07,176 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:07,180 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+[000fe27ae8ae:0/2] 2025-08-22 04:04:07,600 (trainer:371) INFO: 9epoch results: [train] iter_time=0.060, forward_time=0.045, loss_ctc=0.175, loss_att=0.939, acc=0.913, loss=0.557, backward_time=0.012, grad_norm=2.950, clip=11.111, loss_scale=1.000, optim_step_time=4.895e-04, optim0_lr0=1.000, train_time=0.207, time=6.03 seconds, total_count=243, gpu_max_cached_mem_GB=0.109, [valid] loss_ctc=0.997, cer_ctc=0.997, loss_att=1.552, acc=0.773, cer=0.515, wer=0.455, loss=1.274, time=2.37 seconds, total_count=18, gpu_max_cached_mem_GB=0.109, [att_plot] time=2.32 seconds, total_count=0, gpu_max_cached_mem_GB=0.109
+[000fe27ae8ae:0/2] 2025-08-22 04:04:08,294 (trainer:446) INFO: The best model has been updated: valid.acc
+[000fe27ae8ae:0/2] 2025-08-22 04:04:08,294 (trainer:500) INFO: The model files were removed: exp/asr_test_docker/7epoch.pth, exp/asr_test_docker/8epoch.pth
+[000fe27ae8ae:0/2] 2025-08-22 04:04:08,294 (trainer:300) INFO: 10/20epoch started. Estimated time to finish: 2 minutes and 9.9 seconds
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:09,934 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:09,939 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:10,078 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:10,078 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:10,253 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:10,257 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:10,425 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:10,427 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:10,553 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:10,553 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:10,693 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:10,693 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:10,856 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:10,857 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,006 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,006 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,139 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,139 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,269 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,270 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,359 (trainer:792) INFO: 10epoch:train:1-10batch: iter_time=0.159, forward_time=0.040, loss_ctc=0.184, loss_att=0.998, acc=0.880, loss=0.591, backward_time=0.013, grad_norm=6.201, clip=30.000, loss_scale=1.000optim_step_time=4.980e-04, optim0_lr0=1.000, train_time=0.306
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,409 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,409 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,556 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,556 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,703 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,707 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,869 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:11,870 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,013 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,016 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,168 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,173 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,331 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,335 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,480 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,480 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,614 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,614 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,746 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,747 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,835 (trainer:792) INFO: 10epoch:train:11-20batch: iter_time=4.164e-05, forward_time=0.048, loss_ctc=0.081, loss_att=0.605, acc=0.980, loss=0.343, backward_time=0.012, grad_norm=1.314, clip=0.000e+00, loss_scale=1.000, optim_step_time=5.048e-04, optim0_lr0=1.000, train_time=0.148
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,899 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:12,904 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:13,022 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:13,022 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:13,171 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:13,176 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:13,321 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:13,321 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:13,460 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:13,460 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:13,613 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:13,618 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:13,757 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:13,758 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:16,026 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:16,033 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:16,186 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:16,186 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:18,406 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:18,406 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:18,499 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:18,504 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:18,606 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:18,606 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+[000fe27ae8ae:0/2] 2025-08-22 04:04:19,003 (trainer:371) INFO: 10epoch results: [train] iter_time=0.059, forward_time=0.044, loss_ctc=0.117, loss_att=0.746, acc=0.943, loss=0.432, backward_time=0.012, grad_norm=3.251, clip=14.815, loss_scale=1.000, optim_step_time=4.902e-04, optim0_lr0=1.000, train_time=0.206, time=6.02 seconds, total_count=270, gpu_max_cached_mem_GB=0.109, [valid] loss_ctc=1.292, cer_ctc=1.133, loss_att=1.605, acc=0.727, cer=0.636, wer=0.545, loss=1.448, time=2.4 seconds, total_count=20, gpu_max_cached_mem_GB=0.109, [att_plot] time=2.28 seconds, total_count=0, gpu_max_cached_mem_GB=0.109
+[000fe27ae8ae:0/2] 2025-08-22 04:04:19,710 (trainer:444) INFO: There are no improvements in this epoch
+[000fe27ae8ae:0/2] 2025-08-22 04:04:19,711 (trainer:300) INFO: 11/20epoch started. Estimated time to finish: 1 minute and 57.11 seconds
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:21,344 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:21,344 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:21,503 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:21,507 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:21,661 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:21,661 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:21,802 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:21,803 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:21,944 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:21,944 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:22,086 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:22,086 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:22,240 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:22,245 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:22,395 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:22,395 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:22,549 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:22,549 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:22,699 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:22,700 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:22,777 (trainer:792) INFO: 11epoch:train:1-10batch: iter_time=0.158, forward_time=0.045, loss_ctc=0.052, loss_att=0.480, acc=0.990, loss=0.266, backward_time=0.012, grad_norm=0.983, clip=0.000e+00, loss_scale=1.000optim_step_time=4.723e-04, optim0_lr0=1.000, train_time=0.306
+[000fe27ae8ae:0/2] 2025-08-22 04:04:22,839 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:22,839 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,011 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,013 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,157 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,161 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,310 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,314 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,469 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,469 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,600 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,601 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,745 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,749 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,888 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:23,888 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,033 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,038 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,200 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,205 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,294 (trainer:792) INFO: 11epoch:train:11-20batch: iter_time=5.943e-05, forward_time=0.053, loss_ctc=0.052, loss_att=0.457, acc=0.979, loss=0.254, backward_time=0.010, grad_norm=2.004, clip=10.000, loss_scale=1.000, optim_step_time=4.827e-04, optim0_lr0=1.000, train_time=0.152
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,362 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,363 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,499 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,499 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,649 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,653 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,801 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,805 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,945 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:24,950 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:25,091 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:25,092 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:25,244 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:25,244 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:27,458 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:27,458 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:27,589 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:27,589 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:29,809 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:29,814 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:29,889 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:29,889 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:29,965 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:29,965 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+[000fe27ae8ae:0/2] 2025-08-22 04:04:30,359 (trainer:371) INFO: 11epoch results: [train] iter_time=0.059, forward_time=0.048, loss_ctc=0.050, loss_att=0.449, acc=0.985, loss=0.249, backward_time=0.011, grad_norm=1.660, clip=3.704, loss_scale=1.000, optim_step_time=4.848e-04, optim0_lr0=1.000, train_time=0.208, time=6.04 seconds, total_count=297, gpu_max_cached_mem_GB=0.109, [valid] loss_ctc=0.761, cer_ctc=1.012, loss_att=1.081, acc=0.909, cer=0.242, wer=0.182, loss=0.921, time=2.37 seconds, total_count=22, gpu_max_cached_mem_GB=0.109, [att_plot] time=2.24 seconds, total_count=0, gpu_max_cached_mem_GB=0.109
+[000fe27ae8ae:0/2] 2025-08-22 04:04:30,997 (trainer:446) INFO: The best model has been updated: valid.acc
+[000fe27ae8ae:0/2] 2025-08-22 04:04:30,998 (trainer:500) INFO: The model files were removed: exp/asr_test_docker/9epoch.pth, exp/asr_test_docker/10epoch.pth
+[000fe27ae8ae:0/2] 2025-08-22 04:04:30,998 (trainer:300) INFO: 12/20epoch started. Estimated time to finish: 1 minute and 44.64 seconds
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:32,642 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:32,642 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:32,789 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:32,789 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:32,928 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:32,933 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,073 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,073 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,216 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,216 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,347 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,347 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,495 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,498 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,629 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,630 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,785 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,785 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,918 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:33,919 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,002 (trainer:792) INFO: 12epoch:train:1-10batch: iter_time=0.160, forward_time=0.041, loss_ctc=0.038, loss_att=0.368, acc=1.000, loss=0.203, backward_time=0.011, grad_norm=0.972, clip=0.000e+00, loss_scale=1.000optim_step_time=4.857e-04, optim0_lr0=1.000, train_time=0.300
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,066 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,070 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,234 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,239 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,399 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,400 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,537 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,541 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,701 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,705 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,849 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,849 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,993 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:34,996 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:35,142 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:35,146 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:35,298 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:35,298 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:35,440 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:35,445 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:35,533 (trainer:792) INFO: 12epoch:train:11-20batch: iter_time=4.384e-05, forward_time=0.052, loss_ctc=0.029, loss_att=0.256, acc=1.000, loss=0.142, backward_time=0.011, grad_norm=0.578, clip=0.000e+00, loss_scale=1.000, optim_step_time=4.834e-04, optim0_lr0=1.000, train_time=0.153
+[000fe27ae8ae:0/2] 2025-08-22 04:04:35,597 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:35,601 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:35,739 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:35,739 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:35,877 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:35,877 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:36,047 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:36,047 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:36,202 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:36,206 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:36,335 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:36,335 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:36,487 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:36,492 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:38,755 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:38,756 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:38,886 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:38,890 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:41,106 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:41,110 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:41,220 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:41,224 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:41,306 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:41,310 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+[000fe27ae8ae:0/2] 2025-08-22 04:04:41,749 (trainer:371) INFO: 12epoch results: [train] iter_time=0.059, forward_time=0.047, loss_ctc=0.032, loss_att=0.311, acc=1.000, loss=0.172, backward_time=0.011, grad_norm=0.779, clip=0.000e+00, loss_scale=1.000, optim_step_time=4.798e-04, optim0_lr0=1.000, train_time=0.207, time=6.06 seconds, total_count=324, gpu_max_cached_mem_GB=0.109, [valid] loss_ctc=0.927, cer_ctc=0.952, loss_att=1.176, acc=0.864, cer=0.379, wer=0.273, loss=1.051, time=2.36 seconds, total_count=24, gpu_max_cached_mem_GB=0.109, [att_plot] time=2.33 seconds, total_count=0, gpu_max_cached_mem_GB=0.109
+[000fe27ae8ae:0/2] 2025-08-22 04:04:42,496 (trainer:444) INFO: There are no improvements in this epoch
+[000fe27ae8ae:0/2] 2025-08-22 04:04:42,496 (trainer:300) INFO: 13/20epoch started. Estimated time to finish: 1 minute and 32.84 seconds
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:44,137 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:44,141 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:44,273 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:44,273 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:44,415 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:44,416 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:44,557 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:44,557 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:44,706 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:44,707 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:44,854 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:44,854 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,014 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,015 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,147 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,147 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,283 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,283 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,439 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,439 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,529 (trainer:792) INFO: 13epoch:train:1-10batch: iter_time=0.159, forward_time=0.040, loss_ctc=0.024, loss_att=0.252, acc=1.000, loss=0.138, backward_time=0.011, grad_norm=0.613, clip=0.000e+00, loss_scale=1.000optim_step_time=4.922e-04, optim0_lr0=1.000, train_time=0.303
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,574 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,574 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,715 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,719 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,863 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,864 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,995 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:45,996 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:46,138 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:46,139 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:46,288 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:46,292 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:46,432 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:46,432 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:46,570 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:46,570 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:46,712 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:46,712 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:46,869 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:46,873 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:46,968 (trainer:792) INFO: 13epoch:train:11-20batch: iter_time=5.134e-05, forward_time=0.043, loss_ctc=0.021, loss_att=0.213, acc=1.000, loss=0.117, backward_time=0.012, grad_norm=0.471, clip=0.000e+00, loss_scale=1.000, optim_step_time=5.120e-04, optim0_lr0=1.000, train_time=0.144
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,013 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,013 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,157 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,157 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,301 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,301 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,447 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,448 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,586 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,586 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,734 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,738 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,898 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:47,898 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:50,104 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:50,108 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:50,242 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:50,242 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:52,522 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:52,527 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:52,612 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:52,617 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:52,722 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:52,723 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+[000fe27ae8ae:0/2] 2025-08-22 04:04:53,109 (trainer:371) INFO: 13epoch results: [train] iter_time=0.059, forward_time=0.041, loss_ctc=0.021, loss_att=0.217, acc=1.000, loss=0.119, backward_time=0.011, grad_norm=0.513, clip=0.000e+00, loss_scale=1.000, optim_step_time=4.986e-04, optim0_lr0=1.000, train_time=0.203, time=5.91 seconds, total_count=351, gpu_max_cached_mem_GB=0.109, [valid] loss_ctc=1.049, cer_ctc=1.058, loss_att=1.171, acc=0.864, cer=0.379, wer=0.273, loss=1.110, time=2.41 seconds, total_count=26, gpu_max_cached_mem_GB=0.109, [att_plot] time=2.29 seconds, total_count=0, gpu_max_cached_mem_GB=0.109
+[000fe27ae8ae:0/2] 2025-08-22 04:04:53,759 (trainer:444) INFO: There are no improvements in this epoch
+[000fe27ae8ae:0/2] 2025-08-22 04:04:53,759 (trainer:500) INFO: The model files were removed: exp/asr_test_docker/12epoch.pth
+[000fe27ae8ae:0/2] 2025-08-22 04:04:53,759 (trainer:300) INFO: 14/20epoch started. Estimated time to finish: 1 minute and 20.89 seconds
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:04:55,395 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:55,400 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:55,566 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:55,570 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:55,709 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:55,709 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:55,867 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:55,871 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,024 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,029 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,190 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,194 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,325 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,326 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,491 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,496 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,632 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,633 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,796 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,800 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,895 (trainer:792) INFO: 14epoch:train:1-10batch: iter_time=0.158, forward_time=0.052, loss_ctc=0.016, loss_att=0.202, acc=1.000, loss=0.109, backward_time=0.012, grad_norm=0.524, clip=0.000e+00, loss_scale=1.000optim_step_time=4.723e-04, optim0_lr0=1.000, train_time=0.313
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,957 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:56,957 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,106 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,107 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,248 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,252 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,382 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,383 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,526 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,528 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,660 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,660 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,807 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,811 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,965 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:57,969 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:58,117 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:58,118 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:58,270 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:58,274 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:58,350 (trainer:792) INFO: 14epoch:train:11-20batch: iter_time=5.238e-05, forward_time=0.046, loss_ctc=0.015, loss_att=0.150, acc=1.000, loss=0.082, backward_time=0.012, grad_norm=0.332, clip=0.000e+00, loss_scale=1.000, optim_step_time=4.897e-04, optim0_lr0=1.000, train_time=0.145
+[000fe27ae8ae:0/2] 2025-08-22 04:04:58,413 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:58,418 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:58,579 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:58,581 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:58,720 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:58,721 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:58,869 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:58,870 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:59,051 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:59,051 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:59,185 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:59,189 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:59,340 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:04:59,344 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:05:01,585 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:01,585 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:01,740 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:01,744 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:05:03,953 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:03,954 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:04,051 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:04,052 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:04,156 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:04,160 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+[000fe27ae8ae:0/2] 2025-08-22 04:05:04,581 (trainer:371) INFO: 14epoch results: [train] iter_time=0.059, forward_time=0.050, loss_ctc=0.015, loss_att=0.163, acc=1.000, loss=0.089, backward_time=0.012, grad_norm=0.387, clip=0.000e+00, loss_scale=1.000, optim_step_time=4.752e-04, optim0_lr0=1.000, train_time=0.210, time=6.12 seconds, total_count=378, gpu_max_cached_mem_GB=0.109, [valid] loss_ctc=1.310, cer_ctc=1.088, loss_att=1.300, acc=0.818, cer=0.470, wer=0.364, loss=1.305, time=2.4 seconds, total_count=28, gpu_max_cached_mem_GB=0.109, [att_plot] time=2.3 seconds, total_count=0, gpu_max_cached_mem_GB=0.109
+[000fe27ae8ae:0/2] 2025-08-22 04:05:05,245 (trainer:444) INFO: There are no improvements in this epoch
+[000fe27ae8ae:0/2] 2025-08-22 04:05:05,246 (trainer:500) INFO: The model files were removed: exp/asr_test_docker/13epoch.pth
+[000fe27ae8ae:0/2] 2025-08-22 04:05:05,246 (trainer:300) INFO: 15/20epoch started. Estimated time to finish: 1 minute and 9.28 seconds
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:05:06,859 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:06,859 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:06,985 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:06,985 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:07,140 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:07,144 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:07,297 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:07,302 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:07,460 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:07,461 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:07,620 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:07,624 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:07,758 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:07,759 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:07,937 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:07,938 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,069 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,070 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,206 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,206 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,302 (trainer:792) INFO: 15epoch:train:1-10batch: iter_time=0.158, forward_time=0.041, loss_ctc=0.011, loss_att=0.138, acc=1.000, loss=0.075, backward_time=0.012, grad_norm=0.343, clip=0.000e+00, loss_scale=1.000optim_step_time=4.758e-04, optim0_lr0=1.000, train_time=0.305
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,366 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,367 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,507 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,507 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,637 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,637 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,763 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,763 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,915 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:08,915 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,045 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,045 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,194 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,199 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,332 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,332 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,464 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,464 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,600 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,600 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,677 (trainer:792) INFO: 15epoch:train:11-20batch: iter_time=3.882e-05, forward_time=0.037, loss_ctc=0.010, loss_att=0.114, acc=1.000, loss=0.062, backward_time=0.012, grad_norm=0.247, clip=0.000e+00, loss_scale=1.000, optim_step_time=4.671e-04, optim0_lr0=1.000, train_time=0.137
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,739 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,744 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,908 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:09,909 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:10,055 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:10,059 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:10,216 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:10,216 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:10,350 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:10,350 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:10,515 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:10,515 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:10,635 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:10,636 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:05:12,888 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:12,889 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:13,022 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:13,022 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+[000fe27ae8ae:0/2] 2025-08-22 04:05:15,229 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:15,233 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:15,314 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:15,315 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:15,384 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+[000fe27ae8ae:0/2] 2025-08-22 04:05:15,384 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+[000fe27ae8ae:0/2] 2025-08-22 04:05:15,843 (trainer:371) INFO: 15epoch results: [train] iter_time=0.058, forward_time=0.040, loss_ctc=0.010, loss_att=0.123, acc=1.000, loss=0.067, backward_time=0.012, grad_norm=0.292, clip=0.000e+00, loss_scale=1.000, optim_step_time=4.673e-04, optim0_lr0=1.000, train_time=0.203, time=5.92 seconds, total_count=405, gpu_max_cached_mem_GB=0.109, [valid] loss_ctc=1.138, cer_ctc=0.921, loss_att=1.063, acc=0.864, cer=0.333, wer=0.273, loss=1.100, time=2.38 seconds, total_count=30, gpu_max_cached_mem_GB=0.109, [att_plot] time=2.29 seconds, total_count=0, gpu_max_cached_mem_GB=0.109
+[000fe27ae8ae:0/2] 2025-08-22 04:05:16,512 (trainer:444) INFO: There are no improvements in this epoch
+[000fe27ae8ae:0/2] 2025-08-22 04:05:16,512 (trainer:500) INFO: The model files were removed: exp/asr_test_docker/14epoch.pth
+[000fe27ae8ae:0/2] 2025-08-22 04:05:16,512 (reporter:412) INFO: [Early stopping] valid.acc has not been improved 4 epochs continuously. The training was stopped at 15epoch
+# Accounting: time=109 threads=1
+# Ended (code 0) at Fri Aug 22 04:05:17 Asia 2025, elapsed time 109 seconds

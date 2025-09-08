@@ -1,0 +1,80 @@
+# python3 -m espnet2.bin.asr_inference --batch_size 1 --ngpu 0 --data_path_and_name_and_type dump/raw/test_yesno/wav.scp,speech,sound --key_file exp/asr_test_docker/decode_asr_model_valid.acc.ave/test_yesno/logdir/keys.10.scp --asr_train_config exp/asr_test_docker/config.yaml --asr_model_file exp/asr_test_docker/valid.acc.ave.pth --output_dir exp/asr_test_docker/decode_asr_model_valid.acc.ave/test_yesno/logdir/output.10 --config conf/decode.yaml 
+# Started at Fri Aug 22 04:05:20 Asia 2025
+#
+/espnet/espnet2/enh/loss/criterions/time_domain.py:446: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  @torch.cuda.amp.autocast(enabled=False)
+/espnet/espnet2/enh/encoder/stft_encoder.py:79: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  @torch.cuda.amp.autocast(enabled=False)
+/opt/conda/bin/python3 /espnet/espnet2/bin/asr_inference.py --batch_size 1 --ngpu 0 --data_path_and_name_and_type dump/raw/test_yesno/wav.scp,speech,sound --key_file exp/asr_test_docker/decode_asr_model_valid.acc.ave/test_yesno/logdir/keys.10.scp --asr_train_config exp/asr_test_docker/config.yaml --asr_model_file exp/asr_test_docker/valid.acc.ave.pth --output_dir exp/asr_test_docker/decode_asr_model_valid.acc.ave/test_yesno/logdir/output.10 --config conf/decode.yaml
+2025-08-22 04:05:22,919 (abs_task:2125) INFO: config file: exp/asr_test_docker/config.yaml
+2025-08-22 04:05:22,927 (asr:539) INFO: Vocabulary size: 14
+2025-08-22 04:05:22,946 (initialize:33) INFO: Initialize encoder.enc.0.birnn0.bias_ih_l0 to zeros
+2025-08-22 04:05:22,946 (initialize:33) INFO: Initialize encoder.enc.0.birnn0.bias_hh_l0 to zeros
+2025-08-22 04:05:22,947 (initialize:33) INFO: Initialize encoder.enc.0.birnn0.bias_ih_l0_reverse to zeros
+2025-08-22 04:05:22,947 (initialize:33) INFO: Initialize encoder.enc.0.birnn0.bias_hh_l0_reverse to zeros
+2025-08-22 04:05:22,947 (initialize:33) INFO: Initialize encoder.enc.0.bt0.bias to zeros
+2025-08-22 04:05:22,948 (initialize:33) INFO: Initialize encoder.enc.0.birnn1.bias_ih_l0 to zeros
+2025-08-22 04:05:22,948 (initialize:33) INFO: Initialize encoder.enc.0.birnn1.bias_hh_l0 to zeros
+2025-08-22 04:05:22,949 (initialize:33) INFO: Initialize encoder.enc.0.birnn1.bias_ih_l0_reverse to zeros
+2025-08-22 04:05:22,949 (initialize:33) INFO: Initialize encoder.enc.0.birnn1.bias_hh_l0_reverse to zeros
+2025-08-22 04:05:22,949 (initialize:33) INFO: Initialize encoder.enc.0.bt1.bias to zeros
+2025-08-22 04:05:22,950 (initialize:33) INFO: Initialize encoder.enc.0.birnn2.bias_ih_l0 to zeros
+2025-08-22 04:05:22,950 (initialize:33) INFO: Initialize encoder.enc.0.birnn2.bias_hh_l0 to zeros
+2025-08-22 04:05:22,950 (initialize:33) INFO: Initialize encoder.enc.0.birnn2.bias_ih_l0_reverse to zeros
+2025-08-22 04:05:22,950 (initialize:33) INFO: Initialize encoder.enc.0.birnn2.bias_hh_l0_reverse to zeros
+2025-08-22 04:05:22,951 (initialize:33) INFO: Initialize encoder.enc.0.bt2.bias to zeros
+2025-08-22 04:05:22,952 (initialize:33) INFO: Initialize decoder.decoder.0.bias_ih to zeros
+2025-08-22 04:05:22,952 (initialize:33) INFO: Initialize decoder.decoder.0.bias_hh to zeros
+2025-08-22 04:05:22,952 (initialize:33) INFO: Initialize decoder.output.bias to zeros
+2025-08-22 04:05:22,952 (initialize:33) INFO: Initialize decoder.att_list.0.mlp_enc.bias to zeros
+2025-08-22 04:05:22,952 (initialize:33) INFO: Initialize decoder.att_list.0.gvec.bias to zeros
+2025-08-22 04:05:22,952 (initialize:33) INFO: Initialize ctc.ctc_lo.bias to zeros
+/espnet/espnet2/tasks/abs_task.py:2148: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(model_file, map_location=device),
+2025-08-22 04:05:22,960 (asr_inference:374) WARNING: As non-batch scorers ['decoder'] are found, fall back to non-batch implementation.
+2025-08-22 04:05:22,960 (asr_inference:383) INFO: Beam_search: BeamSearch(
+  (nn_dict): ModuleDict(
+    (decoder): RNNDecoder(
+      (embed): Embedding(14, 128)
+      (dropout_emb): Dropout(p=0.0, inplace=False)
+      (decoder): ModuleList(
+        (0): LSTMCell(256, 128)
+      )
+      (dropout_dec): ModuleList(
+        (0): Dropout(p=0.0, inplace=False)
+      )
+      (output): Linear(in_features=128, out_features=14, bias=True)
+      (att_list): ModuleList(
+        (0): AttLoc(
+          (mlp_enc): Linear(in_features=128, out_features=128, bias=True)
+          (mlp_dec): Linear(in_features=128, out_features=128, bias=False)
+          (mlp_att): Linear(in_features=10, out_features=128, bias=False)
+          (loc_conv): Conv2d(1, 10, kernel_size=(1, 201), stride=(1, 1), padding=(0, 100), bias=False)
+          (gvec): Linear(in_features=128, out_features=1, bias=True)
+        )
+      )
+    )
+  )
+)
+2025-08-22 04:05:22,960 (asr_inference:384) INFO: Decoding device=cpu, dtype=float32
+2025-08-22 04:05:22,961 (asr_inference:462) INFO: Text tokenizer: WordTokenizer(delimiter="None")
+2025-08-22 04:05:22,962 (asr:511) INFO: Optional Data Names: ('text_spk2', 'text_spk3', 'text_spk4', 'prompt')
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+2025-08-22 04:05:23,262 (asr_inference:509) INFO: speech length: 16893
+/espnet/espnet2/asr/espnet_model.py:377: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(False):
+2025-08-22 04:05:23,289 (beam_search:428) INFO: decoder input length: 33
+2025-08-22 04:05:23,289 (beam_search:429) INFO: max output length: 33
+2025-08-22 04:05:23,289 (beam_search:430) INFO: min output length: 0
+2025-08-22 04:05:23,290 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+2025-08-22 04:05:23,290 (nets_utils:157) WARNING: Using make_pad_mask with a list of lengths is not tracable. If you try to trace this function with type(lengths) == list, please change the type of lengths to torch.LongTensor.
+2025-08-22 04:05:23,319 (beam_search:444) INFO: end detected at 7
+2025-08-22 04:05:23,319 (beam_search:476) INFO:  -0.23 * 0.7 =  -0.16 for decoder
+2025-08-22 04:05:23,319 (beam_search:476) INFO:  -0.04 * 0.3 =  -0.01 for ctc
+2025-08-22 04:05:23,319 (beam_search:479) INFO: total log probability: -0.17
+2025-08-22 04:05:23,319 (beam_search:480) INFO: normalized log probability: -0.06
+2025-08-22 04:05:23,319 (beam_search:481) INFO: total number of ended hypotheses: 20
+2025-08-22 04:05:23,320 (beam_search:483) INFO: best hypo: 電梯
+
+# Accounting: time=4 threads=1
+# Ended (code 0) at Fri Aug 22 04:05:24 Asia 2025, elapsed time 4 seconds

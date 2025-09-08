@@ -1,0 +1,104 @@
+# python3 -m espnet2.bin.asr_train --collect_stats true --use_preprocessor true --bpemodel none --token_type word --token_list data/zh_token_list/word/tokens.txt --non_linguistic_symbols none --cleaner none --g2p none --train_shape_file exp/asr_stats_raw_zh_word_sp/logdir/train.1.scp --valid_shape_file exp/asr_stats_raw_zh_word_sp/logdir/valid.1.scp --output_dir exp/asr_stats_raw_zh_word_sp/logdir/stats.1 --config conf/train_asr.yaml --frontend_conf fs=16k --train_data_path_and_name_and_type dump/raw/train_nodev_sp/wav.scp,speech,sound --valid_data_path_and_name_and_type dump/raw/train_dev/wav.scp,speech,sound --train_data_path_and_name_and_type dump/raw/train_nodev_sp/text,text,text --valid_data_path_and_name_and_type dump/raw/train_dev/text,text,text 
+# Started at Fri Aug 22 04:03:24 Asia 2025
+#
+/opt/conda/lib/python3.11/site-packages/typeguard/__init__.py:1016: UserWarning: no type annotations present -- not typechecking espnet2.asr.frontend.fused.FusedFrontends.__init__
+  warn('no type annotations present -- not typechecking {}'.format(function_name(func)))
+/opt/conda/bin/python3 /espnet/espnet2/bin/asr_train.py --collect_stats true --use_preprocessor true --bpemodel none --token_type word --token_list data/zh_token_list/word/tokens.txt --non_linguistic_symbols none --cleaner none --g2p none --train_shape_file exp/asr_stats_raw_zh_word_sp/logdir/train.1.scp --valid_shape_file exp/asr_stats_raw_zh_word_sp/logdir/valid.1.scp --output_dir exp/asr_stats_raw_zh_word_sp/logdir/stats.1 --config conf/train_asr.yaml --frontend_conf fs=16k --train_data_path_and_name_and_type dump/raw/train_nodev_sp/wav.scp,speech,sound --valid_data_path_and_name_and_type dump/raw/train_dev/wav.scp,speech,sound --train_data_path_and_name_and_type dump/raw/train_nodev_sp/text,text,text --valid_data_path_and_name_and_type dump/raw/train_dev/text,text,text
+[000fe27ae8ae] 2025-08-22 04:03:26,801 (asr:539) INFO: Vocabulary size: 14
+[000fe27ae8ae] 2025-08-22 04:03:26,812 (initialize:33) INFO: Initialize encoder.enc.0.birnn0.bias_ih_l0 to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,812 (initialize:33) INFO: Initialize encoder.enc.0.birnn0.bias_hh_l0 to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,813 (initialize:33) INFO: Initialize encoder.enc.0.birnn0.bias_ih_l0_reverse to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,813 (initialize:33) INFO: Initialize encoder.enc.0.birnn0.bias_hh_l0_reverse to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,813 (initialize:33) INFO: Initialize encoder.enc.0.bt0.bias to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,813 (initialize:33) INFO: Initialize encoder.enc.0.birnn1.bias_ih_l0 to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,813 (initialize:33) INFO: Initialize encoder.enc.0.birnn1.bias_hh_l0 to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,813 (initialize:33) INFO: Initialize encoder.enc.0.birnn1.bias_ih_l0_reverse to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,813 (initialize:33) INFO: Initialize encoder.enc.0.birnn1.bias_hh_l0_reverse to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,813 (initialize:33) INFO: Initialize encoder.enc.0.bt1.bias to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,814 (initialize:33) INFO: Initialize encoder.enc.0.birnn2.bias_ih_l0 to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,814 (initialize:33) INFO: Initialize encoder.enc.0.birnn2.bias_hh_l0 to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,814 (initialize:33) INFO: Initialize encoder.enc.0.birnn2.bias_ih_l0_reverse to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,814 (initialize:33) INFO: Initialize encoder.enc.0.birnn2.bias_hh_l0_reverse to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,814 (initialize:33) INFO: Initialize encoder.enc.0.bt2.bias to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,815 (initialize:33) INFO: Initialize decoder.decoder.0.bias_ih to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,815 (initialize:33) INFO: Initialize decoder.decoder.0.bias_hh to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,815 (initialize:33) INFO: Initialize decoder.output.bias to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,815 (initialize:33) INFO: Initialize decoder.att_list.0.mlp_enc.bias to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,815 (initialize:33) INFO: Initialize decoder.att_list.0.gvec.bias to zeros
+[000fe27ae8ae] 2025-08-22 04:03:26,815 (initialize:33) INFO: Initialize ctc.ctc_lo.bias to zeros
+[000fe27ae8ae] 2025-08-22 04:03:27,146 (abs_task:1317) INFO: pytorch.version=2.4.0, cuda.available=True, cudnn.version=90100, cudnn.benchmark=False, cudnn.deterministic=True
+[000fe27ae8ae] 2025-08-22 04:03:27,146 (abs_task:1318) INFO: Model structure:
+ESPnetASRModel(
+  (frontend): DefaultFrontend(
+    (stft): Stft(n_fft=512, win_length=512, hop_length=128, center=True, normalized=False, onesided=True)
+    (frontend): Frontend()
+    (logmel): LogMel(sr=16000, n_fft=512, n_mels=80, fmin=0, fmax=8000.0, htk=False)
+  )
+  (normalize): UtteranceMVN(norm_means=True, norm_vars=False)
+  (encoder): RNNEncoder(
+    (enc): ModuleList(
+      (0): RNNP(
+        (birnn0): LSTM(80, 128, batch_first=True, bidirectional=True)
+        (bt0): Linear(in_features=256, out_features=128, bias=True)
+        (birnn1): LSTM(128, 128, batch_first=True, bidirectional=True)
+        (bt1): Linear(in_features=256, out_features=128, bias=True)
+        (birnn2): LSTM(128, 128, batch_first=True, bidirectional=True)
+        (bt2): Linear(in_features=256, out_features=128, bias=True)
+      )
+    )
+  )
+  (decoder): RNNDecoder(
+    (embed): Embedding(14, 128)
+    (dropout_emb): Dropout(p=0.0, inplace=False)
+    (decoder): ModuleList(
+      (0): LSTMCell(256, 128)
+    )
+    (dropout_dec): ModuleList(
+      (0): Dropout(p=0.0, inplace=False)
+    )
+    (output): Linear(in_features=128, out_features=14, bias=True)
+    (att_list): ModuleList(
+      (0): AttLoc(
+        (mlp_enc): Linear(in_features=128, out_features=128, bias=True)
+        (mlp_dec): Linear(in_features=128, out_features=128, bias=False)
+        (mlp_att): Linear(in_features=10, out_features=128, bias=False)
+        (loc_conv): Conv2d(1, 10, kernel_size=(1, 201), stride=(1, 1), padding=(0, 100), bias=False)
+        (gvec): Linear(in_features=128, out_features=1, bias=True)
+      )
+    )
+  )
+  (criterion_att): LabelSmoothingLoss(
+    (criterion): KLDivLoss()
+  )
+  (ctc): CTC(
+    (ctc_lo): Linear(in_features=128, out_features=14, bias=True)
+    (ctc_loss): CTCLoss()
+  )
+)
+
+Model summary:
+    Class Name: ESPnetASRModel
+    Total Number of model parameters: 1.08 M
+    Number of trainable parameters: 1.08 M (100.0%)
+    Size: 4.33 MB
+    Type: torch.float32
+[000fe27ae8ae] 2025-08-22 04:03:27,146 (abs_task:1321) INFO: Optimizer:
+Adadelta (
+Parameter Group 0
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    lr: 1.0
+    maximize: False
+    rho: 0.95
+    weight_decay: 0
+)
+[000fe27ae8ae] 2025-08-22 04:03:27,146 (abs_task:1322) INFO: Scheduler: None
+[000fe27ae8ae] 2025-08-22 04:03:27,146 (abs_task:1331) INFO: Saving the configuration in exp/asr_stats_raw_zh_word_sp/logdir/stats.1/config.yaml
+[000fe27ae8ae] 2025-08-22 04:03:27,149 (abs_task:1342) INFO: Namespace(config='conf/train_asr.yaml', print_config=False, log_level='INFO', drop_last_iter=False, dry_run=False, iterator_type='sequence', valid_iterator_type=None, output_dir='exp/asr_stats_raw_zh_word_sp/logdir/stats.1', ngpu=0, seed=0, num_workers=1, num_att_plot=3, num_spectrum_plot=3, dist_backend='nccl', dist_init_method='env://', dist_world_size=None, dist_rank=None, local_rank=None, dist_master_addr=None, dist_master_port=None, dist_launcher=None, multiprocessing_distributed=False, unused_parameters=False, sharded_ddp=False, cudnn_enabled=True, cudnn_benchmark=False, cudnn_deterministic=True, collect_stats=True, write_collected_feats=False, max_epoch=20, patience=3, val_scheduler_criterion=['valid', 'acc'], early_stopping_criterion=['valid', 'acc', 'max'], best_model_criterion=[['valid', 'acc', 'max']], keep_nbest_models=1, nbest_averaging_interval=0, grad_clip=5.0, grad_clip_type=2.0, grad_noise=False, accum_grad=1, no_forward_run=False, resume=False, train_dtype='float32', use_amp=False, log_interval=None, use_matplotlib=True, use_tensorboard=True, create_graph_in_tensorboard=False, use_wandb=False, wandb_project=None, wandb_id=None, wandb_entity=None, wandb_name=None, wandb_model_log_interval=-1, detect_anomaly=False, use_adapter=False, adapter='lora', save_strategy='all', adapter_conf={}, pretrain_path=None, init_param=[], ignore_init_mismatch=False, freeze_param=[], num_iters_per_epoch=None, batch_size=5, valid_batch_size=None, batch_bins=1000000, valid_batch_bins=None, train_shape_file=['exp/asr_stats_raw_zh_word_sp/logdir/train.1.scp'], valid_shape_file=['exp/asr_stats_raw_zh_word_sp/logdir/valid.1.scp'], batch_type='folded', valid_batch_type=None, fold_length=[], sort_in_batch='descending', shuffle_within_batch=False, sort_batch='descending', multiple_iterator=False, chunk_length=500, chunk_shift_ratio=0.5, num_cache_chunks=1024, chunk_excluded_key_prefixes=[], chunk_default_fs=None, train_data_path_and_name_and_type=[('dump/raw/train_nodev_sp/wav.scp', 'speech', 'sound'), ('dump/raw/train_nodev_sp/text', 'text', 'text')], valid_data_path_and_name_and_type=[('dump/raw/train_dev/wav.scp', 'speech', 'sound'), ('dump/raw/train_dev/text', 'text', 'text')], allow_variable_data_keys=False, max_cache_size=0.0, max_cache_fd=32, allow_multi_rates=False, valid_max_cache_size=None, exclude_weight_decay=False, exclude_weight_decay_conf={}, optim='adadelta', optim_conf={'lr': 1.0, 'rho': 0.95, 'eps': 1e-08, 'weight_decay': 0}, scheduler=None, scheduler_conf={}, token_list=['<blank>', '<unk>', '好熱', '大便', '肚子好餓', '對不起', '謝謝媽媽', '我要看電腦', '好的', '家樂福', '尿尿', '電梯', '停車場', '<sos/eos>'], init='chainer', input_size=None, ctc_conf={'dropout_rate': 0.0, 'ctc_type': 'builtin', 'reduce': True, 'ignore_nan_grad': None, 'zero_infinity': True, 'brctc_risk_strategy': 'exp', 'brctc_group_strategy': 'end', 'brctc_risk_factor': 0.0}, joint_net_conf=None, use_preprocessor=True, use_lang_prompt=False, use_nlp_prompt=False, token_type='word', bpemodel=None, non_linguistic_symbols=None, cleaner=None, g2p=None, speech_volume_normalize=None, rir_scp=None, rir_apply_prob=1.0, noise_scp=None, noise_apply_prob=1.0, noise_db_range='13_15', short_noise_thres=0.5, aux_ctc_tasks=[], frontend='default', frontend_conf={'fs': '16k'}, specaug=None, specaug_conf={}, normalize='utterance_mvn', normalize_conf={}, model='espnet', model_conf={'ctc_weight': 0.5}, preencoder=None, preencoder_conf={}, encoder='rnn', encoder_conf={'rnn_type': 'lstm', 'bidirectional': True, 'use_projection': True, 'num_layers': 3, 'hidden_size': 128, 'output_size': 128}, postencoder=None, postencoder_conf={}, decoder='rnn', decoder_conf={'rnn_type': 'lstm', 'num_layers': 1, 'hidden_size': 128, 'sampling_probability': 0.0, 'att_conf': {'atype': 'location', 'adim': 128, 'aconv_chans': 10, 'aconv_filts': 100}}, preprocessor='default', preprocessor_conf={}, required=['output_dir', 'token_list'], version='202412', distributed=False)
+[000fe27ae8ae] 2025-08-22 04:03:27,151 (asr:511) INFO: Optional Data Names: ('text_spk2', 'text_spk3', 'text_spk4', 'prompt')
+[000fe27ae8ae] 2025-08-22 04:03:27,151 (asr:511) INFO: Optional Data Names: ('text_spk2', 'text_spk3', 'text_spk4', 'prompt')
+Failed to import Flash Attention, using ESPnet default: No module named 'flash_attn'
+# Accounting: time=4 threads=1
+# Ended (code 0) at Fri Aug 22 04:03:28 Asia 2025, elapsed time 4 seconds
