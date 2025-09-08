@@ -1,0 +1,9 @@
+# pyscripts/audio/format_wav_scp.py --fs 16k --audio-format flac.ark --multi-columns-input false --multi-columns-output false dump/raw/sp/logs/wav.8.scp dump/raw/sp/data/format.8 
+# Started at Mon May  6 10:33:10 CST 2024
+#
+2024-05-06 10:33:10,583 (format_wav_scp:151) INFO: /usr/bin/python3 pyscripts/audio/format_wav_scp.py --fs 16k --audio-format flac.ark --multi-columns-input false --multi-columns-output false dump/raw/sp/logs/wav.8.scp dump/raw/sp/data/format.8
+0it [00:00, ?it/s]
+0it [00:00, ?it/s][A18it [00:00, 676.79it/s]
+18it [00:00, 670.86it/s]
+# Accounting: time=0 threads=1
+# Ended (code 0) at Mon May  6 10:33:10 CST 2024, elapsed time 0 seconds

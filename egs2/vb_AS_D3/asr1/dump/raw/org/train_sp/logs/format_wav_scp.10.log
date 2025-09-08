@@ -1,0 +1,10 @@
+# pyscripts/audio/format_wav_scp.py --fs 16k --audio-format flac.ark --multi-columns-input false --multi-columns-output false dump/raw/org/train_sp/logs/wav.10.scp dump/raw/org/train_sp/data/format.10 
+# Started at Mon May  6 10:33:07 CST 2024
+#
+2024-05-06 10:33:07,999 (format_wav_scp:151) INFO: /usr/bin/python3 pyscripts/audio/format_wav_scp.py --fs 16k --audio-format flac.ark --multi-columns-input false --multi-columns-output false dump/raw/org/train_sp/logs/wav.10.scp dump/raw/org/train_sp/data/format.10
+0it [00:00, ?it/s]
+0it [00:00, ?it/s][A20it [00:00, 196.00it/s]
+20it [00:00, 196.15it/s][A26it [00:00, 184.50it/s]
+26it [00:00, 184.20it/s]
+# Accounting: time=1 threads=1
+# Ended (code 0) at Mon May  6 10:33:08 CST 2024, elapsed time 1 seconds
