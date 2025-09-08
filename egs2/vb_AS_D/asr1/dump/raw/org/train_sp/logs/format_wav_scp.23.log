@@ -1,0 +1,10 @@
+# pyscripts/audio/format_wav_scp.py --fs 16k --audio-format flac.ark --multi-columns-input false --multi-columns-output false dump/raw/org/train_sp/logs/wav.23.scp dump/raw/org/train_sp/data/format.23 
+# Started at Thu Mar  7 16:49:46 CST 2024
+#
+2024-03-07 16:49:46,869 (format_wav_scp:151) INFO: /usr/bin/python3 pyscripts/audio/format_wav_scp.py --fs 16k --audio-format flac.ark --multi-columns-input false --multi-columns-output false dump/raw/org/train_sp/logs/wav.23.scp dump/raw/org/train_sp/data/format.23
+0it [00:00, ?it/s]
+0it [00:00, ?it/s][Asox WARN wav: Length in output .wav header will be wrong since can't seek to fix it
+1it [00:00, 174.10it/s]
+1it [00:00, 166.10it/s]
+# Accounting: time=0 threads=1
+# Ended (code 0) at Thu Mar  7 16:49:46 CST 2024, elapsed time 0 seconds
